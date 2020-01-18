@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import queryString from 'query-string';
 
-const GridResults = () => {
+const GridResults = ({ location }) => {
+    useEffect(() => {
+        const { search } = queryString.parse(location.search);
+    }, [location.search]);
+
     return (
-        <div>Grid</div>
+        <div>{location.search}</div>
     )
 }
 

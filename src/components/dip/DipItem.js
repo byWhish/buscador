@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const DipItem = () => {
+const DipItem = ({ match }) => {
+    useEffect(() => {
+        const { params: { id } } = match;
+    }, [match.params.id]);
+
     return (
-        <div>Item</div>
+        <div>{match.params.id}</div>
     )
 }
 
