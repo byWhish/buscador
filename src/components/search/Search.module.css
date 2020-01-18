@@ -1,0 +1,16 @@
+.searchWrapper {
+    background-color: var(--primary-color);
+    display: flex;
+    width: 100vw;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.queryInput {
+    width: 80%
+}
+
+.searchLogo {
+    margin: 10px;
+}
