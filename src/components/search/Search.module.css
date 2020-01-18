@@ -7,10 +7,33 @@
     justify-content: center;
 }
 
-.queryInput {
-    width: 80%
-}
-
 .searchLogo {
     margin: 10px;
+}
+
+.queryInput {
+    flex: 1;
+    font-size: 18px;
+}
+
+.inputWrapper input:focus {
+    outline: none;
+}
+
+.inputWrapper button {
+    cursor: pointer;
+}
+
+.inputWrapper input,
+.inputWrapper button {
+    border: none;
+    background-color: transparent;
+}
+
+
+.inputWrapper {
+    width: 60%;
+    display: flex;
+    background-color: white;
+    padding: 5px;
 }
