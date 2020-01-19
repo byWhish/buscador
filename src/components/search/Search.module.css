@@ -9,6 +9,7 @@
 
 .searchLogo {
     margin: 10px;
+    cursor: pointer;
 }
 
 .queryInput {
@@ -20,6 +21,9 @@
     outline: none;
 }
 
+.inputWrapper button:focus {
+    outline: none;
+}
 .inputWrapper button {
     cursor: pointer;
 }

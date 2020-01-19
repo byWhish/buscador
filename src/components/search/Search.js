@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react';
 import styles from './Search.module.css';
 import { navigate } from '../../utils/NavigationHelper';
 
+const handleLogoClick = () => navigate.to.root();
+
 const Search = () => {
     const [query, setQuery] = useState('');
 
@@ -15,7 +17,7 @@ const Search = () => {
 
     return (
         <div className={styles.searchWrapper}>
-            <img className={styles.searchLogo} src='/img/Logo_ML.png' alt='ML_Logo' />
+            <img className={styles.searchLogo} src='/img/Logo_ML.png' alt='ML_Logo' onClick={handleLogoClick} />
             <div className={styles.inputWrapper}>
                 <input placeholder='Nunca dejes de buscar' className={styles.queryInput} onChange={handleSearchChange} value={query} />
                 <button onClick={handleSearchClick}>

@@ -1,5 +1,27 @@
 import axios from 'axios';
-import { baseEndpoint } from '../config';
+import { baseEndpoint, ITEM_CONDITION } from '../config';
+
+const generateSoldQuantity = (quantity) => quantity ? ` - ${quantity} vendidos` : '';
+
+const processItem = (result) => {
+    const {
+        description: { plain_text },
+            item: { id, condition, title, price, sold_quantity, pictures }
+        } = result;
+    return {
+        condition: ITEM_CONDITION[condition],
+        id,
+        title,
+        price,
+        plain_text,
+        sold_quantity: generateSoldQuantity(sold_quantity),
+        picture: pictures[0].url
+    }
+}
+
+const generateFiltersRoute = (filters) => {
+    return filters.length ? filters[0].values[0].path_from_root.map(value => value.name).join(' > ') : '';
+}
 
 const searchItems = (query) => {
     const params = {
@@ -12,7 +34,7 @@ const searchItems = (query) => {
             const { results, filters } = response.data;
             return {
                     items: results.slice(0, 4),
-                    filtersRoute: filters[0].values[0].path_from_root.map(value => value.name).join(' > '),
+                    filtersRoute: generateFiltersRoute(filters),
                    }
         })
         .catch(error => console.log(error));
@@ -23,7 +45,7 @@ const fetchItem = (id) => {
 
     return axios.get(endpoint)
         .then(response => {
-            return response.data;
+            return processItem(response.data);
         });
 }
 

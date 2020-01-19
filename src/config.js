@@ -20,3 +20,8 @@ export const PAGE_STATE = {
     DONE:   'done',
     ERROR:  'error',
 }
+
+export const ITEM_CONDITION = {
+    new: 'Nuevo',
+    used: 'Usado',
+}

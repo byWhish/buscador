@@ -11,9 +11,14 @@ const searchItems = (query) => {
     history.push(`${items}?search=${query}`)
 }
 
+const root = () => {
+    history.push('/');
+}
+
 export const navigate = {
     to: {
         dipItem,
-        searchItems
+        searchItems,
+        root,
     }
 }

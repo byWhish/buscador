@@ -11,6 +11,7 @@
     width: 180px;
     height: 180px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .itemDetail {
@@ -23,6 +24,7 @@
 
 .itemTitle {
     max-width: 600px;
+    cursor: pointer;
 }
 
 .itemDetailHeader {
