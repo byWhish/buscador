@@ -4,6 +4,7 @@ import { toFixedLocale } from '../../utils/LocaleHelper';
 import { locale } from '../../config';
 import history from '../../utils/History';
 import { navigate } from '../../utils/NavigationHelper';
+import PriceItem from '../common/PriceItem';
 
 const GridItem = ({ item }) => {
     const { id, price, title, address: { state_name }, thumbnail, shipping: { free_shipping } } = item;
@@ -17,7 +18,7 @@ const GridItem = ({ item }) => {
             <img className={styles.itemImage} src={thumbnail} alt='item thumbnail' onClick={handleItemClick} />
             <div className={styles.itemDetail}>
                 <div className={styles.itemDetailHeader}>
-                    <span>{toFixedLocale(price, locale)}</span>
+                    <PriceItem price={price} />
                     {free_shipping && <img src='/img/ic_shipping.png' alt='shipit logo' />}
                 </div>
                 <span className={styles.itemTitle}>{title}</span>

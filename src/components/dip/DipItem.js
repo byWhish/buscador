@@ -2,6 +2,7 @@ import React, { useEffect, useState, Fragment } from 'react';
 import ItemService from '../../services/ItemsService';
 import { PAGE_STATE } from '../../config';
 import styles from './DipItem.module.css';
+import PriceItem from '../common/PriceItem';
 
 const DipItem = ({ match, filtersRoute }) => {
     const [source, setSource] = useState(null);
@@ -28,14 +29,14 @@ const DipItem = ({ match, filtersRoute }) => {
                             <img src={source.item.pictures[0].url} />
                         </div>
                     <div className={styles.itemDescription}>
-                        <div>Descripcion del producto</div>
-                        <div>{source.description.plain_text}</div>
+                        <div className={styles.descriptionTile}>Descripcion del producto</div>
+                        <div className={styles.description}>{source.description.plain_text}</div>
                     </div>
                 </div>
                 <div className={styles.purchaseDetail}>
-                    <div>{source.item.condition} - {source.item.sold_quantity}</div>
-                    <div>{source.item.title}</div>
-                    <div>{source.item.price}</div>
+                    <div className={styles.itemStatus}>{source.item.condition} - {source.item.sold_quantity}</div>
+                    <div className={styles.itemTitle}>{source.item.title}</div>
+                    <PriceItem price={source.item.price} className={styles.price} />
                     <button>Comprar</button>
                 </div>
             </div>
