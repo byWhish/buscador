@@ -5,3 +5,12 @@ export const locale = {
     language: 'es',
     currency: 'ARS'
 }
+
+export const urls = {
+    items: '/items/'
+}
+
+export const routes = {
+    gridItems: '/items/',
+    dipItem: '/items/:id'
+}

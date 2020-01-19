@@ -1,12 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import styles from './Search.module.css';
 import history from '../../utils/History';
+import { navigate } from '../../utils/NavigationHelper';
 
 const Search = () => {
     const [query, setQuery] = useState('');
 
     const handleSearchClick = useCallback(() => {
-        history.push(`/items?search=${query}`)
+        navigate.to.searchItems(query);
     }, [query]);
 
     const handleSearchChange = useCallback((event) => {

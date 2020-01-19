@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styles from './GridItem.module.css';
 import { toFixedLocale } from '../../utils/LocaleHelper';
 import { locale } from '../../config';
+import history from '../../utils/History';
+import { navigate } from '../../utils/NavigationHelper';
 
 const GridItem = ({ item }) => {
-    const { price, title, address: { state_name }, thumbnail, shipping: { free_shipping } } = item;
+    const { id, price, title, address: { state_name }, thumbnail, shipping: { free_shipping } } = item;
+
+    const handleItemClick = useCallback(() => {
+        navigate.to.dipItem(id)
+    }, [id])
 
     return(
         <div className={styles.itemWrapper}>
-            <img className={styles.itemImage} src={thumbnail} alt='item image' />
+            <img className={styles.itemImage} src={thumbnail} alt='item thumbnail' onClick={handleItemClick} />
             <div className={styles.itemDetail}>
                 <div className={styles.itemDetailHeader}>
                     <span>{toFixedLocale(price, locale)}</span>
