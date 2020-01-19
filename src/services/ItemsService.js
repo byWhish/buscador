@@ -7,9 +7,13 @@ const searchItems = (query) => {
     }
     const endpoint = `${baseEndpoint}items/`;
 
-    axios.get(endpoint, { params })
+    return axios.get(endpoint, { params })
         .then(response => {
-            return response.data;
+            const { results, filters } = response.data;
+            return {
+                    items: results.slice(0, 4),
+                    filtersRoute: filters[0].values[0].path_from_root.map(value => value.name).join(' > '),
+                   }
         })
         .catch(error => console.log(error));
 }
@@ -17,7 +21,7 @@ const searchItems = (query) => {
 const fetchItem = (id) => {
     const endpoint = `${baseEndpoint}items/${id}`;
 
-    axios.get(endpoint)
+    return axios.get(endpoint)
         .then(response => {
             return response.data;
         });
