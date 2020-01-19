@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import styles from './Search.module.css';
-import history from '../../utils/History';
 import { navigate } from '../../utils/NavigationHelper';
 
 const Search = () => {

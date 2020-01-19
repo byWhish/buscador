@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import queryString from 'query-string';
 import ItemService from '../../services/ItemsService';
 import GridItem from './GridItem';
 import styles from './GridResults.module.css';
 
-const GridResults = ({ location }) => {
+const GridResults = ({ location, setFiltersRoute, filtersRoute }) => {
     const [items, setItems] = useState([]);
-    const [filtersRoute, setFiltersRoute] = useState('');
 
     useEffect(() => {
         const { search } = queryString.parse(location.search);
@@ -18,12 +17,14 @@ const GridResults = ({ location }) => {
     }, [location.search]);
 
     return (
-        <div className={styles.gridWrapper}>
+        <Fragment>
             <div className={styles.filtersRoute}>{filtersRoute}</div>
-            {items.map( item => {
-                return (<GridItem key={item.id} item={item} />)
-            })}
-        </div>
+            <div className={styles.gridWrapper}>
+                {items.map( item => {
+                    return (<GridItem key={item.id} item={item} />)
+                })}
+            </div>
+        </Fragment>
     )
 }
 

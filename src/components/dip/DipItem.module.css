@@ -1,0 +1,25 @@
+.dipItemWrapper {
+    display: flex;
+}
+
+.itemDetail {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.purchaseDetail {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.itemImage {
+    width: 680px;
+    display: flex;
+    justify-content: center;
+}
+
+.itemDescription {
+
+}
