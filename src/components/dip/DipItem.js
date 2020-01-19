@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import ItemService from '../../services/ItemsService';
-import { PAGE_STATE, ITEM_CONDITION } from '../../config';
+import { PAGE_STATE } from '../../config';
 import PriceItem from '../common/PriceItem';
 import LoadingWrapper, { useLoading } from '../common/useLoading';
 
@@ -8,7 +8,7 @@ import styles from './DipItem.module.css';
 
 const DipItem = ({ match, filtersRoute }) => {
     const [source, setSource] = useState({});
-    const [status, done, loading, error] = useLoading(PAGE_STATE.LOADING)
+    const [status, done, , error] = useLoading(PAGE_STATE.LOADING)
 
     useEffect(() => {
         const { params: { id } } = match;
@@ -18,7 +18,7 @@ const DipItem = ({ match, filtersRoute }) => {
                 done();
             })
             .catch(() => error())
-    }, [match]);
+    }, [match, done, error]);
 
     return (
         <LoadingWrapper status={status}>
@@ -27,7 +27,7 @@ const DipItem = ({ match, filtersRoute }) => {
                 <div className={styles.dipItemWrapper}>
                     <div className={styles.itemDetail}>
                         <div className={styles.itemImage}>
-                            <img src={source.picture} />
+                            <img src={source.picture} alt=''/>
                         </div>
                     <div className={styles.itemDescription}>
                         <div className={styles.descriptionTile}>Descripcion del producto</div>

@@ -1,8 +1,5 @@
 import React, { useCallback } from 'react';
 import styles from './GridItem.module.css';
-import { toFixedLocale } from '../../utils/LocaleHelper';
-import { locale } from '../../config';
-import history from '../../utils/History';
 import { navigate } from '../../utils/NavigationHelper';
 import PriceItem from '../common/PriceItem';
 
@@ -21,7 +18,7 @@ const GridItem = ({ item }) => {
                     <PriceItem price={price} />
                     {free_shipping && <img src='/img/ic_shipping.png' alt='shipit logo' />}
                 </div>
-                <span className={styles.itemTitle}>{title}</span>
+                <span className={styles.itemTitle} onClick={handleItemClick}>{title}</span>
             </div>
             <div className={styles.itemLocation}>
                 <span>{state}</span>

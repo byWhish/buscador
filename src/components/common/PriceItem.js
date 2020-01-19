@@ -3,7 +3,7 @@ import { locale } from '../../config';
 import { toFixedLocale } from '../../utils/LocaleHelper';
 
 const PriceItem = ({ price, currencyCode, className }) => {
-    const { amount, currency, decimals } = price
+    const { amount, currency } = price
     return (
         <div className={className} >{toFixedLocale(amount, { ...locale, currency })}</div>
     )

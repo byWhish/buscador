@@ -9,7 +9,7 @@ import styles from './GridResults.module.css';
 
 const GridResults = ({ location, setFiltersRoute, filtersRoute }) => {
     const [items, setItems] = useState([]);
-    const [status, done, loading, error] = useLoading(PAGE_STATE.LOADING)
+    const [status, done, , error] = useLoading(PAGE_STATE.LOADING)
 
     useEffect(() => {
         const { search } = queryString.parse(location.search);
@@ -20,7 +20,7 @@ const GridResults = ({ location, setFiltersRoute, filtersRoute }) => {
                 done();
              })
             .catch(() => error())
-    }, [location.search]);
+    }, [location.search, done, error, setFiltersRoute]);
 
     return (
         <LoadingWrapper status={status}>
