@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './GridItem.module.css';
+import { toFixedLocale } from '../../utils/LocaleHelper';
+import { locale } from '../../config';
 
 const GridItem = ({ item }) => {
     const { price, title, address: { state_name }, thumbnail, shipping: { free_shipping } } = item;
@@ -9,10 +11,10 @@ const GridItem = ({ item }) => {
             <img className={styles.itemImage} src={thumbnail} alt='item image' />
             <div className={styles.itemDetail}>
                 <div className={styles.itemDetailHeader}>
-                    <span>{price}</span>
+                    <span>{toFixedLocale(price, locale)}</span>
                     {free_shipping && <img src='/img/ic_shipping.png' alt='shipit logo' />}
                 </div>
-                <span>{title}</span>
+                <span className={styles.itemTitle}>{title}</span>
             </div>
             <div className={styles.itemLocation}>
                 <span>{state_name}</span>

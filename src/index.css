@@ -1,6 +1,8 @@
 :root {
     --primary-color: #ffe600;
+    --blue: #3483fa;
     --black: #333333;
+    --black-light: #666666;
     --gray: #999999;
     --gray-light: #eeeeee;
     --white: #ffffff;
@@ -13,6 +15,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  override-x: hidden;
 }
 
 code {

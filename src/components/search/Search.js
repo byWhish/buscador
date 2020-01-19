@@ -17,7 +17,7 @@ const Search = () => {
         <div className={styles.searchWrapper}>
             <img className={styles.searchLogo} src='/img/Logo_ML.png' alt='ML_Logo' />
             <div className={styles.inputWrapper}>
-                <input className={styles.queryInput} onChange={handleSearchChange} value={query} />
+                <input placeholder='Nunca dejes de buscar' className={styles.queryInput} onChange={handleSearchChange} value={query} />
                 <button onClick={handleSearchClick}>
                     <img src='/img/ic_Search.png' alt='buttonIcon' />
                 </button>
