@@ -31,7 +31,7 @@ const DipItem = ({ match, filtersRoute }) => {
                         </div>
                     <div className={styles.itemDescription}>
                         <div className={styles.descriptionTile}>Descripcion del producto</div>
-                        <div className={styles.description}>{source.plain_text}</div>
+                        <div className={styles.description}>{source.description}</div>
                     </div>
                 </div>
                 <div className={styles.purchaseDetail}>

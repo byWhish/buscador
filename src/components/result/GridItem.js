@@ -7,7 +7,7 @@ import { navigate } from '../../utils/NavigationHelper';
 import PriceItem from '../common/PriceItem';
 
 const GridItem = ({ item }) => {
-    const { id, price, title, address: { state_name }, thumbnail, shipping: { free_shipping } } = item;
+    const { id, price, title, state, picture, free_shipping } = item;
 
     const handleItemClick = useCallback(() => {
         navigate.to.dipItem(id)
@@ -15,7 +15,7 @@ const GridItem = ({ item }) => {
 
     return(
         <div className={styles.itemWrapper}>
-            <img className={styles.itemImage} src={thumbnail} alt='item thumbnail' onClick={handleItemClick} />
+            <img className={styles.itemImage} src={picture} alt='item thumbnail' onClick={handleItemClick} />
             <div className={styles.itemDetail}>
                 <div className={styles.itemDetailHeader}>
                     <PriceItem price={price} />
@@ -24,7 +24,7 @@ const GridItem = ({ item }) => {
                 <span className={styles.itemTitle}>{title}</span>
             </div>
             <div className={styles.itemLocation}>
-                <span>{state_name}</span>
+                <span>{state}</span>
             </div>
         </div>
     )

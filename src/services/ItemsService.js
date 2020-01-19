@@ -1,40 +1,37 @@
 import axios from 'axios';
-import { baseEndpoint, ITEM_CONDITION } from '../config';
+import { baseEndpoint, ITEM_CONDITION, author } from '../config';
 
 const generateSoldQuantity = (quantity) => quantity ? ` - ${quantity} vendidos` : '';
 
 const processItem = (result) => {
-    const {
-        description: { plain_text },
-            item: { id, condition, title, price, sold_quantity, pictures }
-        } = result;
+    const { condition, sold_quantity, ...rest } = result;
     return {
         condition: ITEM_CONDITION[condition],
-        id,
-        title,
-        price,
-        plain_text,
         sold_quantity: generateSoldQuantity(sold_quantity),
-        picture: pictures[0].url
+        ...rest,
     }
 }
 
-const generateFiltersRoute = (filters) => {
-    return filters.length ? filters[0].values[0].path_from_root.map(value => value.name).join(' > ') : '';
+const generateFiltersRoute = (categories = []) => {
+    return categories.length ? categories.join(' > ') : '';
 }
 
 const searchItems = (query) => {
+    const headers = {
+        Author: JSON.stringify(author)
+    }
+
     const params = {
         q: query,
     }
     const endpoint = `${baseEndpoint}items/`;
 
-    return axios.get(endpoint, { params })
+    return axios.get(endpoint, { params, headers })
         .then(response => {
-            const { results, filters } = response.data;
+            const { items, categories } = response.data;
             return {
-                    items: results.slice(0, 4),
-                    filtersRoute: generateFiltersRoute(filters),
+                    items: items.slice(0, 4),
+                    filtersRoute: generateFiltersRoute(categories),
                    }
         })
         .catch(error => console.log(error));
@@ -43,9 +40,14 @@ const searchItems = (query) => {
 const fetchItem = (id) => {
     const endpoint = `${baseEndpoint}items/${id}`;
 
-    return axios.get(endpoint)
+    const headers = {
+        Author: JSON.stringify(author)
+    }
+
+    return axios.get(endpoint, { headers })
         .then(response => {
-            return processItem(response.data);
+            const { item } = response.data;
+            return processItem(item);
         });
 }
 

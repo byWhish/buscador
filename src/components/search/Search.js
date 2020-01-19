@@ -8,7 +8,8 @@ const Search = () => {
     const [query, setQuery] = useState('');
 
     const handleSearchClick = useCallback(() => {
-        navigate.to.searchItems(query);
+        if (query) navigate.to.searchItems(query);
+        setQuery('');
     }, [query]);
 
     const handleSearchChange = useCallback((event) => {

@@ -1,7 +1,6 @@
 import IntlPolifill from 'intl';
 
 export const toFixedLocale = (float, locale) => {
-    console.log(locale, `${locale.language}-${locale.country}`)
     getIntl();
     const options = {
         minimumFractionDigits: 0,
