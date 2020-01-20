@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { PAGE_STATE } from '../../config';
 
 import styles from './Loading.module.css';
@@ -21,17 +21,17 @@ const LoadingWrapper = ({ status, children }) => {
 const useLoading = (initialStatus) => {
     const [status, setStatus] = useState(initialStatus);
 
-    const done = () => {
+    const done = useCallback(() => {
         setStatus(PAGE_STATE.DONE);
-    }
+    }, [])
 
-    const loading = () => {
+    const loading = useCallback(() => {
         setStatus(PAGE_STATE.LOADING);
-    }
+    }, [])
 
-    const error = () => {
+    const error = useCallback(() => {
         setStatus(PAGE_STATE.ERROR)
-    }
+    }, [])
 
     return [status, done, loading, error];
 }

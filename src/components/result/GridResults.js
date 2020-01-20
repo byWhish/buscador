@@ -20,7 +20,7 @@ const GridResults = ({ location, setFiltersRoute, filtersRoute }) => {
                 done();
              })
             .catch(() => error())
-    }, [location.search, done, error, setFiltersRoute]);
+    }, [location, done, error, setFiltersRoute]);
 
     return (
         <LoadingWrapper status={status}>
