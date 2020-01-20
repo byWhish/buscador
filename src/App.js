@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Search from './components/search/Search';
+import DipItems from './components/dip/DipItem';
+import GridResults from './components/result/GridResults';
+import { Switch, Route } from 'react-router';
+import { routes } from './config';
+import PropsRoute from './utils/PropsRoute';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const { dipItem, gridItems } = routes;
+    const [filtersRoute, setFiltersRoute] = useState('');
+    return (
+            <Route path={'/'}>
+                <Route path={'/'} component={Search} />
+                <Switch>
+                    <PropsRoute exact path={dipItem} component={DipItems} filtersRoute={filtersRoute} />
+                    <PropsRoute exact path={gridItems} component={GridResults} setFiltersRoute={setFiltersRoute} filtersRoute={filtersRoute} />
+                </Switch>
+            </Route>
+    )
 }
 
 export default App;

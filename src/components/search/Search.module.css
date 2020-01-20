@@ -1,0 +1,43 @@
+.searchWrapper {
+    background-color: var(--primary-color);
+    display: flex;
+    width: 100vw;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchLogo {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.queryInput {
+    flex: 1;
+    font-size: 18px;
+}
+
+.inputWrapper input:focus {
+    outline: none;
+}
+
+.inputWrapper button:focus {
+    outline: none;
+}
+.inputWrapper button {
+    cursor: pointer;
+}
+
+.inputWrapper input,
+.inputWrapper button {
+    border: none;
+    background-color: transparent;
+}
+
+
+.inputWrapper {
+    width: 60%;
+    display: flex;
+    background-color: white;
+    padding: 5px;
+}

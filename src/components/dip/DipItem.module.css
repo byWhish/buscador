@@ -1,0 +1,68 @@
+.dipItemWrapper {
+    margin: 0 50px 0 50px;
+    display: flex;
+    background-color: var(--white);
+    overflow: hidden;
+}
+
+.itemDetail {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 32px 0 0 32px;
+}
+
+.filtersRoute {
+    margin: 16px 50px 16px 50px;
+}
+
+.purchaseDetail {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 32px 32px 0 0;
+}
+
+.purchaseDetail button {
+    background-color: var(--blue);
+    color: var(--white);
+    height: 38px;
+    border: solid 1px var(--gray-light);
+    cursor: pointer;
+}
+
+.itemImage {
+    width: 680px;
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.itemDescription {
+    font-size: 16px;
+}
+
+.price {
+    font-size: 46px;
+    margin-bottom: 32px
+}
+
+.description {
+    margin: 32px 0 32px 0;
+}
+
+.descriptionTile {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.itemStatus {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.itemTitle {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 32px;
+}

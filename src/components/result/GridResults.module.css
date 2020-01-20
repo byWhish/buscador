@@ -1,0 +1,8 @@
+.gridWrapper {
+    margin: 0 50px 0 50px;
+    background-color: var(--white);
+}
+
+.filtersRoute {
+    margin: 16px 50px 16px 50px;
+}
