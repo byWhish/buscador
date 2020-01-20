@@ -17,4 +17,4 @@ La api esta hecha con express. No contempla manejo de errores y cuenta con lo mi
 
 ### Front
 
-El front es un proyecto CRA3 y esta implementado en su totalidad con react hooks. Uso axios para los request y postcss con flex-box para los estilos. Tampoco esta contemplado el manejo de errores. Ya que no hay mockups ni casos de uso. No veo necesario el uso de una libreria de manejo de estados, pero habria usado mobx.   
+El front es un proyecto CRA3 y esta implementado en su totalidad con react hooks. Uso axios para los request y postcss con flex-box para los estilos. Tampoco esta contemplado el manejo de errores, ya que no hay mockups ni casos de uso. No veo necesario el uso de una libreria de manejo de estados, pero habria usado mobx.   

@@ -30,7 +30,7 @@ const DipItem = ({ match, filtersRoute }) => {
                             <img src={source.picture} alt=''/>
                         </div>
                     <div className={styles.itemDescription}>
-                        <div className={styles.descriptionTile}>Descripcion del producto</div>
+                        <div className={styles.descriptionTile}>Descripción del producto</div>
                         <div className={styles.description}>{source.description}</div>
                     </div>
                 </div>
